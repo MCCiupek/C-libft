@@ -6,15 +6,15 @@
 /*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:53:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/16 18:22:28 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/17 16:00:13 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(char str)
 {
 	if (str >= 'A' && str <= 'Z')
-		return (1024);
+		return (1);
 	if (str >= 'a' && str <= 'z')
-		return (1024);
+		return (1);
 	return (0);
 }

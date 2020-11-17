@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 17:13:16 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 16:01:26 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/17 17:44:47 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/17 21:41:47 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char str)
+void	*ft_memset(void *pointer, int value, unsigned int count)
 {
-	if (str < '0' || str > '9')
-		return (0);
-	return (1);
+	unsigned char	*c;
+
+	c = (unsigned char *)pointer;
+	while (count--)
+		*c++ = (unsigned char)value;
+	return (pointer);
 }

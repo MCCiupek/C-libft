@@ -6,17 +6,17 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:21:48 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 11:21:53 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/17 16:00:55 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(char str)
 {
 	if (str >= 'A' && str <= 'Z')
-		return (8);
+		return (1);
 	if (str >= 'a' && str <= 'z')
-		return (8);
+		return (1);
 	if (str >= '0' && str <= '9')
-		return (8);
+		return (1);
 	return (0);
 }

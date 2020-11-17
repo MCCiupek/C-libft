@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 17:13:16 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 16:01:26 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/17 20:08:33 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/17 22:18:29 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char str)
+#include "libft.h"
+
+void	*ft_memccpy(void *dest, void *src, int ch, unsigned int size)
 {
-	if (str < '0' || str > '9')
-		return (0);
-	return (1);
+	while (size-- && *((char *)src - 1) != (char)ch)
+		ft_memset(dest++, *((char *)src++), 1);
+	return (ft_strchr(dest, ch));
 }

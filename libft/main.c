@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:56:39 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 14:47:01 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/17 15:41:15 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/17 22:21:50 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <bsd/string.h>
 
 int	main(int argc, char **argv)
 {
@@ -79,7 +78,7 @@ int	main(int argc, char **argv)
         printf("strncmp : %i\t", strncmp(argv[1], argv[2], ft_strlen(argv[1])));
         printf("\t\t\t|\t%s\n", ft_strncmp(argv[1], argv[2], ft_strlen(argv[1])) == strncmp(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
 
-	// STRLCPY
+/*	// STRLCPY
         printf("ft_strlcpy : %u\t", ft_strlcpy(argv[1], argv[2], ft_strlen(argv[1])));
         printf("strlcpy : %zu\t", strlcpy(argv[1], argv[2], ft_strlen(argv[1])));
         printf("\t\t\t|\t%s\n", ft_strlcpy(argv[1], argv[2], ft_strlen(argv[1])) == strlcpy(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
@@ -89,10 +88,65 @@ int	main(int argc, char **argv)
         printf("strlcat : %zu\t", strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])));
         printf("\t\t\t|\t%s\n", ft_strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])) == strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])) ? "TRUE" : "FALSE");
 
-	// STRNSTR
+*/		// STRNSTR
         printf("ft_strnstr : %s\t", ft_strnstr(argv[1], argv[2], ft_strlen(argv[1])));
         printf("strnstr : %s\t", strnstr(argv[1], argv[2], ft_strlen(argv[1])));
         printf("\t\t\t|\t%s\n", ft_strnstr(argv[1], argv[2], ft_strlen(argv[1])) == strnstr(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
+
+		//MEMSET
+		int i = 0;
+		int array1[argc-1];
+		int array2[argc-1];
+		while (++i < argc)
+		{
+			array1[i-1]=ft_atoi(argv[i]);
+			array2[i-1]=ft_atoi(argv[i]);
+		}
+		unsigned int size = sizeof(int)*(argc - 1);
+		ft_memset(array1, argv[1][0], size);
+		memset(array2, argv[1][0], size);
+		int b = 1;
+		i = -1;
+		printf("memset (%c): ", argv[1][0]);
+		while (++i < argc - 1)
+		{
+			printf("%i %i, ", array1[i], array2[i]);
+			if (array1[i] != array2[i])
+				b = 0;
+		}
+		printf("\t\t\t|\t%s\n", b == 1 ? "TRUE": "FALSE");
+
+		//BZERO
+		ft_bzero(array1, size +1);
+		bzero(array2, size+1);
+		b = 1;
+		i = -1;
+		printf("bzero : ");
+		while (++i < argc - 1)
+		{
+			printf("%c %c, ", array1[i], array2[i]);
+			if (array1[i] != array2[i])
+				b = 0;
+		}
+		printf("\t\t\t|\t%s\n", b == 1 ? "TRUE": "FALSE");
+
+		//MEMCPY
+		char *txt = argv[1];
+		unsigned int len = strlen(txt);
+		char dest1[len];
+		char dest2[len];
+		printf("%i\n", len);	
+		char *res1 = ft_memcpy(dest1, txt, len);
+		char *res2 = memcpy(dest2, txt, len);
+		printf("ft_memcpy : %s\tmemcpy : %s\n", dest1, dest2);
+	
+		//MEMCCPY	
+		int ch = argv[2][0];
+		char dest21[len];
+		char dest22[len];
+		char *res21 = ft_memccpy(dest21, txt, ch, len);
+		char *res22 = memccpy(dest22, txt, ch, len);
+		printf("ft_memccpy : %s\tmemccpy : %s\n", dest21, dest22);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:21:14 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 11:21:18 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/17 15:57:58 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_atoi(char *str)
 		return (0);
 	signe = 1;
 	nb = 0;
-	while (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
 			signe = signe * -1;
