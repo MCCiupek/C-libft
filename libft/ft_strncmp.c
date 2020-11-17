@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:10:39 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 12:10:44 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/17 11:31:20 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/17 11:43:11 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int len)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i])
+	if (!len)
+		return (0);
+	while ((s1[i] || s2[i]) && i < len)
+	{
+		if (s1[i] > s2[i])
+			return (s1[i] - s2[i]);
+		else if (s1[i] < s2[i])
+			return (s1[i] - s2[i]);
 		i++;
-	return (i);
+	}
+	return (0);
 }

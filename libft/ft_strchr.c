@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 18:53:18 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/16 19:03:52 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/17 15:09:46 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/17 15:09:53 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(char *str, char c)
+char	*ft_strchr(char *str, char c)
 {
 	int	i;
 
@@ -18,5 +18,8 @@ char *ft_strchr(char *str, char c)
 	while (str[++i])
 		if (str[i] == c)
 			return (&str[i]);
-	return (0);
+	if (c)
+		return (0);
+	else
+		return (&str[i]);
 }

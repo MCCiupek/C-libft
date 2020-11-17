@@ -6,21 +6,20 @@
 /*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:53:18 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/16 19:16:28 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/17 11:23:53 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_sttrchr(char *str, char c)
+char	*ft_strrchr(char *str, char c)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = 0;
-	while (str[++i])
-		len++;
-	i = len;
-	while (str[--i])
+	while (str[i])
+		i++;
+	if (!c)
+		return (&str[i]);
+	while (i-- >= 0)
 		if (str[i] == c)
 			return (&str[i]);
 	return (0);

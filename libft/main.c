@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:56:39 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/16 19:11:13 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/17 14:47:01 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <bsd/string.h>
 
 int	main(int argc, char **argv)
 {
@@ -64,14 +65,34 @@ int	main(int argc, char **argv)
         printf("\t\t\t|\t%s\n", ft_tolower(argv[1][0]) == tolower(argv[1][0]) ? "TRUE" : "FALSE");
 
 	// STRCHR
-        printf("ft_strchr : %s\t", ft_strchr(argv[1], argv[1][0]));
-        printf("strchr : %s\t", strchr(argv[1], argv[1][0]));
-        printf("\t\t\t|\t%s\n", ft_strchr(argv[1], argv[1][0]) == strchr(argv[1], argv[1][0]) ? "TRUE" : "FALSE");
+        printf("ft_strchr : %s\t", ft_strchr(argv[1], argv[2][0]));
+        printf("strchr : %s\t", strchr(argv[1], argv[2][0]));
+        printf("\t\t\t|\t%s\n", ft_strchr(argv[1], argv[2][0]) == strchr(argv[1], argv[2][0]) ? "TRUE" : "FALSE");
 	
 	// STRRCHR
-        printf("ft_strrchr : %s\t", ft_strrchr(argv[1], argv[1][0]));
-        printf("strrchr : %s\t", strrchr(argv[1], argv[1][0]));
-        printf("\t\t\t|\t%s\n", ft_strrchr(argv[1], argv[1][0]) == strrchr(argv[1], argv[1][0]) ? "TRUE" : "FALSE");
+        printf("ft_strrchr : %s\t", ft_strrchr(argv[1], argv[2][0]));
+        printf("strrchr : %s\t", strrchr(argv[1], argv[2][0]));
+        printf("\t\t\t|\t%s\n", ft_strrchr(argv[1], argv[2][0]) == strrchr(argv[1], argv[2][0]) ? "TRUE" : "FALSE");
+
+	// STRNCMP
+        printf("ft_strncmp : %i\t", ft_strncmp(argv[1], argv[2], ft_strlen(argv[1])));
+        printf("strncmp : %i\t", strncmp(argv[1], argv[2], ft_strlen(argv[1])));
+        printf("\t\t\t|\t%s\n", ft_strncmp(argv[1], argv[2], ft_strlen(argv[1])) == strncmp(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
+
+	// STRLCPY
+        printf("ft_strlcpy : %u\t", ft_strlcpy(argv[1], argv[2], ft_strlen(argv[1])));
+        printf("strlcpy : %zu\t", strlcpy(argv[1], argv[2], ft_strlen(argv[1])));
+        printf("\t\t\t|\t%s\n", ft_strlcpy(argv[1], argv[2], ft_strlen(argv[1])) == strlcpy(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
+
+	// STRLCAT
+        printf("ft_strlcat : %u\t", ft_strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])));
+        printf("strlcat : %zu\t", strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])));
+        printf("\t\t\t|\t%s\n", ft_strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])) == strlcat(argv[1], argv[2], 1 + ft_strlen(argv[1])) ? "TRUE" : "FALSE");
+
+	// STRNSTR
+        printf("ft_strnstr : %s\t", ft_strnstr(argv[1], argv[2], ft_strlen(argv[1])));
+        printf("strnstr : %s\t", strnstr(argv[1], argv[2], ft_strlen(argv[1])));
+        printf("\t\t\t|\t%s\n", ft_strnstr(argv[1], argv[2], ft_strlen(argv[1])) == strnstr(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
 
 	return (0);
 }
