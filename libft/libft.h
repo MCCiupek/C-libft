@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:53:22 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 20:17:36 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/18 14:52:04 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void			*ft_memset(void *pointer, int value, unsigned int size);
 void			ft_bzero(void *s, unsigned int n);
 void			*ft_memcpy(void *dest, void *src, unsigned int size);
 void			*ft_memccpy(void *dest, void *src, int ch, unsigned int size);
+void			*ft_memmove(void *dest, void *src, unsigned int size);
+void			*ft_memchr(void	*mem, int ch, unsigned int size);
+int				ft_memcmp(void *p1, void *p2, unsigned int size);
 
 #endif

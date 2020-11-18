@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 20:08:33 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/18 13:51:01 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/18 14:02:22 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/18 14:43:18 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, void *src, int ch, unsigned int size)
+void	*ft_memchr(void	*mem, int ch, unsigned int size)
 {
-	if (!ch)
-		ft_memcpy(dest, src, size);
-	while (size-- && *((char *)src - 1) != (char)ch)
-		ft_memset(dest++, *((char *)src++), 1);
-	return (ft_strchr(dest, ch));
+	while (size--)
+	{
+		if (*((char *)mem) == (char)ch)
+			return (mem);
+		mem++;
+	}
+	return (0);
 }

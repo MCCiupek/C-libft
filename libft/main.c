@@ -6,7 +6,7 @@
 /*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 15:41:15 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 22:21:50 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/18 14:54:38 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,5 +148,20 @@ int	main(int argc, char **argv)
 		char *res22 = memccpy(dest22, txt, ch, len);
 		printf("ft_memccpy : %s\tmemccpy : %s\n", dest21, dest22);
 
+		//MEMMOVE
+		char dest31[len];
+		char dest32[len];
+		char *res31 = ft_memmove(dest31, txt, len);
+		char *res32 = memmove(dest32, txt, len);
+		printf("ft_memmove : %s\tmemmove : %s\n", dest31, dest32);
+	
+		//MEMCHR
+		void *found1 = ft_memchr(txt, (int)argv[2][0], len);
+		void *found2 = memchr(txt, (int)argv[2][0], len);
+		//printf("ft_memchr : %c\tmemchr : %c\n", *((char*) found1), *((char *)found2));
+
+		//MEMCMP
+		printf("ft_memcmp : %i\t", ft_memcmp(argv[1], argv[2], len));
+		printf("memcmp : %i\n", memcmp(argv[1], argv[2], len));
 	return (0);
 }
