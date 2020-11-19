@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(char str)
+int	ft_isalnum(int ch)
 {
-	if (str >= 'A' && str <= 'Z')
+	if (ch >= 'A' && ch <= 'Z')
 		return (1);
-	if (str >= 'a' && str <= 'z')
+	if (ch >= 'a' && ch <= 'z')
 		return (1);
-	if (str >= '0' && str <= '9')
+	if (ch >= '0' && ch <= '9')
 		return (1);
 	return (0);
 }

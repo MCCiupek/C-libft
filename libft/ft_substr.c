@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 17:44:47 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 21:41:47 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/18 18:59:33 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/19 17:17:50 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *pointer, int value, size_t count)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*c;
+	char	*res;
 
-	c = (unsigned char *)pointer;
-	while (count--)
-		*c++ = (unsigned char)value;
-	return (pointer);
+	if (start < ft_strlen(s))
+		if ((res = (char *)malloc(sizeof(*s) * (len + 1))))
+		{
+			ft_strlcpy(res, s + start, len);
+			return (res);
+		}
+	return (NULL);
 }

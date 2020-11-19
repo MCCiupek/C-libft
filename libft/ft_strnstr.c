@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(char *s1, char *s2, unsigned int size)
+char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 {
 	unsigned int	i;
 	unsigned int	j;
 
 	i = 0;
 	if (s2[i] == '\0')
-		return (&s1[i]);
+		return ((char *)&s1[i]);
 	if (!size)
 		return (0);
 	while (s1[i] && i < size)
@@ -28,7 +28,7 @@ char	*ft_strnstr(char *s1, char *s2, unsigned int size)
 		if (s1[i] == s2[j])
 			while (s1[i + j] == s2[j])
 				if (!s2[++j])
-					return (&s1[i]);
+					return ((char *)&s1[i]);
 		i++;
 	}
 	return (0);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:31:44 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/16 18:51:51 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(char str)
+char	ft_tolower(int ch)
 {
-	if (str >= 'A' && str <= 'Z')
-		str = str + 32;
-	return (str);
+	if (ch >= 'A' && ch <= 'Z')
+		ch = ch + 32;
+	return (ch);
 }

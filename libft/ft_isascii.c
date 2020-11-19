@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:14:59 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/16 18:23:19 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char str)
+int	ft_isascii(int ch)
 {
-	if (str >= 0 && str <= 127)
+	if (ch >= 0 && ch <= 127)
 		return (1);
 	return (0);
 }

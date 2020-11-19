@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:31:44 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/16 18:51:42 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char str)
+int	ft_toupper(int ch)
 {
-	if (str >= 'a' && str <= 'z')
-		str = str - 32;
-	return (str);
+	if (ch >= 'a' && ch <= 'z')
+		ch = ch - 32;
+	return (ch);
 }

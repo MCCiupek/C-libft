@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_spaces(char *str)
+int		ft_spaces(const char *str)
 {
 	int i;
 
@@ -25,7 +25,7 @@ int		ft_spaces(char *str)
 	return (i);
 }
 
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
 	int		i;
 	int		signe;

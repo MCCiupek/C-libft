@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 13:51:38 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/18 14:00:50 by mciupek          ###   ########.fr       */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, void *src, unsigned int size)
+void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	char	tmp[size];
 

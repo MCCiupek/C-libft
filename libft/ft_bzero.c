@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek </var/mail/mciupek>                +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:48:43 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/17 21:03:44 by mciupek          ###   ########.fr       */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_bzero(void *s, unsigned int n)
+void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }

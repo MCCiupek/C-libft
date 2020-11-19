@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:24:33 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/17 16:02:19 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char str)
+int	ft_isprint(int ch)
 {
-	if (str >= 32 && str <= 126)
+	if (ch >= 32 && ch <= 126)
 		return (1);
 	return (0);
 }

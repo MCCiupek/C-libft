@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:53:18 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/17 11:23:53 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(char *str, char c)
+char	*ft_strrchr(const char *str, int ch)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	if (!c)
-		return (&str[i]);
+	if (!ch)
+		return ((char *)&str[i]);
 	while (i-- >= 0)
-		if (str[i] == c)
-			return (&str[i]);
+		if (str[i] == ch)
+			return ((char *)&str[i]);
 	return (0);
 }

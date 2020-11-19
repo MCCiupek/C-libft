@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mciupek <mciupek@42.fr>                    +#+  +:+       +#+        */
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:53:35 by mciupek           #+#    #+#             */
 /*   Updated: 2020/11/17 16:00:13 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char str)
+int	ft_isalpha(int ch)
 {
-	if (str >= 'A' && str <= 'Z')
+	if (ch >= 'A' && ch <= 'Z')
 		return (1);
-	if (str >= 'a' && str <= 'z')
+	if (ch >= 'a' && ch <= 'z')
 		return (1);
 	return (0);
 }

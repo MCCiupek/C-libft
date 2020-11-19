@@ -6,13 +6,15 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:31 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 11:52:31 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/19 10:16:08 by mcciupek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)

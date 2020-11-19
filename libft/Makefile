@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mciupek </var/mail/mciupek>                +#+  +:+       +#+         #
+/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 15:18:07 by mciupek           #+#    #+#              #
-#    Updated: 2020/11/18 15:28:36 by mciupek          ###   ########.fr        #
+#    Updated: 2020/11/18 17:46:24 by mciupek          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRCS	= ft_memset.c\
 		ft_strlcat.c\
 		ft_strnstr.c\
 		ft_atoi.c\
+		ft_calloc.c\
+		ft_strdup.c\
 
 DIR		= ./
 CC		= clang
