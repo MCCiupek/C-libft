@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 15:07:57 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 12:54:40 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:53:52 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t	ft_nbrlen(long n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	long	nb;
 	char	*res;

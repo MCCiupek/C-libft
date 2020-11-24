@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:59:33 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/24 09:55:22 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:23:28 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else
 	{
-		if(!(res = (char *)malloc(sizeof(char) * 1)))
+		if (!(res = (char *)malloc(sizeof(char) * 1)))
 			return (NULL);
 		res[0] = '\0';
 		return (res);

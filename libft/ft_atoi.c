@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:21:14 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 13:13:48 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:51:35 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_spaces(const char *str)
 	return (i);
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int	i;
 	int	signe;

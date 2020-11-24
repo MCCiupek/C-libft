@@ -6,16 +6,16 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:18:26 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 17:31:35 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:53:32 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int size;
-	
+
 	size = 0;
 	while (lst)
 	{

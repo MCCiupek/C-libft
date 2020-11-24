@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:53:00 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 16:55:10 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:27:34 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct		s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
-}			t_list;
+}					t_list;
 
 #endif

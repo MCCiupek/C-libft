@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 19:41:59 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 15:00:38 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:54:23 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
 	void	*original_dest;
-	
+
 	if (!dest && !src)
 		return (NULL);
 	original_dest = dest;

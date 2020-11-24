@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:08:50 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 18:33:47 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:52:39 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	while (*lst)
 	{
-		elem = (*lst)->next; 
+		elem = (*lst)->next;
 		ft_lstdelone(*lst, del);
 		(*lst) = elem;
 	}

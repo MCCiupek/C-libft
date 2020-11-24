@@ -6,13 +6,13 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:16:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/24 09:52:03 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:21:58 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ch(char c)
+static char		*ch(char c)
 {
 	char	*res;
 
@@ -34,10 +34,10 @@ static size_t	count_wd(char *str, char c)
 	return (l);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
-	char	*t;
-	char	*str;
+	char	*x;
+	char	*y;
 	char	**res;
 	size_t	l;
 
@@ -47,19 +47,17 @@ char	**ft_split(char const *s, char c)
 	if (!(res = (char **)malloc(sizeof(char *) * (l + 1))))
 		return (NULL);
 	res[l] = NULL;
-	if (!l)
-		return (res);
-	t = ft_strtrim(s, ch(c));
-	while (--l)
+	x = ft_strtrim(s, ch(c));
+	while (l--)
 	{
-		str = ft_strtrim(ft_strrchr(t, c), ch(c));
-		t = ft_strtrim(ft_substr(t, 0, ft_strlen(t) - ft_strlen(str)), ch(c));
-		if (!(res[l] = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
+		if (l)
+		{
+			y = ft_strtrim(ft_strrchr(x, c), ch(c));
+			x = ft_strtrim(ft_substr(x, 0, ft_strlen(x) - ft_strlen(y)), ch(c));
+		}
+		if (!(res[l] = malloc(sizeof(char) * (ft_strlen(l ? y : x) + 1))))
 			return (NULL);
-		res[l] = str;
+		res[l] = l ? y : x;
 	}
-	if (!(res[l] = (char *)malloc(sizeof(char) * (ft_strlen(t) + 1))))
-		return (NULL);
-	res[l] = t;
 	return (res);
 }

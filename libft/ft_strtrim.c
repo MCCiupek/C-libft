@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 11:11:16 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/24 09:53:39 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:23:01 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char		*ft_strtrim(const char *s1, const char *set)
 {
 	char	*res;
 	size_t	size;
-	int	stop;
-	int	start;
+	int		stop;
+	int		start;
 
 	if (!s1 || !set)
 		return (NULL);
