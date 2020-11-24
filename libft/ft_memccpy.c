@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 20:08:33 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/18 13:51:01 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/19 18:35:51 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	*ft_memccpy(void *dest, const void *src, int ch, size_t size)
 {
-	if (!ch)
-		ft_memcpy(dest, src, size);
-	while (size-- && *((char *)src - 1) != (char)ch)
-		ft_memset(dest++, *((char *)src++), 1);
-	return ((void *)ft_strchr(dest, ch));
+	void	*original_dest;
+
+	original_dest = dest;
+	while (size--)
+	{
+		ft_memset(dest++, *((char *)src), 1);
+		if (*((unsigned char *)src++) == (unsigned char)ch)
+			return (dest);
+	}
+	return (NULL);
 }

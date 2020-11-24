@@ -92,9 +92,9 @@ int	main(int argc, char **argv)
 	// STRLCAT
     char dest11[len];
     char dest12[len];
-    printf("%s\t|\t", ft_strlcat(dest11, txt, len) == strlcat(dest12, txt, len) ? "TRUE" : "FALSE");
-    printf("ft_strlcat : %zu\t", ft_strlcat(dest11, txt, len));
-    printf("strlcat : %zu\n", strlcat(dest12, txt, len));
+    printf("%s\t|\t", ft_strlcat(dest11, txt, len - 2) == strlcat(dest12, txt, len - 2) ? "TRUE" : "FALSE");
+    printf("ft_strlcat : %zu\t", ft_strlcat(dest11, txt, len - 2));
+    printf("strlcat : %zu\n", strlcat(dest12, txt, len-2));
 
 	// STRNSTR
     printf("%s\t|\t", ft_strnstr(argv[1], argv[2], ft_strlen(argv[1])) == strnstr(argv[1], argv[2], ft_strlen(argv[1])) ? "TRUE" : "FALSE");
@@ -168,7 +168,7 @@ int	main(int argc, char **argv)
     //MEMCMP
     printf("ft_memcmp : %i\t", ft_memcmp(argv[1], argv[2], len));
     printf("memcmp : %i\n", memcmp(argv[1], argv[2], len));
-    
+    /*
     //CALLOC
 	int *p1 = (int *)ft_calloc(ft_atoi(argv[1]), sizeof(int));
 	int *p2 = (int *)calloc(ft_atoi(argv[1]), sizeof(int));
@@ -182,7 +182,7 @@ int	main(int argc, char **argv)
 	char *copy1 = ft_strdup(txt);
 	char *copy2 = strdup(txt);
     	printf("ft_strdup : %s\tstrdup : %s\n", copy1, copy2);
-	
+	*/
     //************************** PARTIE 2 ******************************
     //SUBSTR
     char *sub1 = ft_substr(txt, argv[2][0], argv[3][0]);
@@ -198,10 +198,24 @@ int	main(int argc, char **argv)
     
     //SPLIT
     char **split1 = ft_split(txt, argv[2][0]);
-    printf("split :%s\n", split1[2]);
     i = -1;
     while (split1[++i])
         printf("ft_split[%i] : %s\n", i, split1[i]);
+    
+    //ITOA
+    printf("itoa : %i = %s\n", ft_atoi(txt), ft_itoa(ft_atoi(txt)));
+    printf("itoa : 0 = %s\n", ft_itoa(0));
+    printf("itoa : -2147483648LL = %s\n", ft_itoa(-2147483648LL));
+    printf("itoa : -1 = %s\n", ft_itoa(-1));
+    
+    //MAPI
+    //printf("ft_strmapi : %s", ft_strmapi(txt, &mapi));
+    
+    ft_putchar_fd('A', 1);
+    ft_putchar_fd('\n', 1);
+    ft_putstr_fd("Salut\n", 1);
+    ft_putendl_fd("Salut", 1);
+    ft_putnbr_fd(123, 1);
     
 	return (0);
 }

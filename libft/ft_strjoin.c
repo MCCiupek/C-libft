@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 09:49:43 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/19 10:22:07 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 09:54:25 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	l1;
 	size_t	l2;
 
+	if (!s1 || !s2)
+		return (NULL);
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
 	if ((tab = malloc(sizeof(char *) * (1 + l1 + l2))))

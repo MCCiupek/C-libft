@@ -6,13 +6,13 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 18:31:44 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/16 18:51:51 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/23 15:33:50 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(int ch)
+int	ft_tolower(int ch)
 {
 	if (ch >= 'A' && ch <= 'Z')
-		ch = ch + 32;
+		ch += 32;
 	return (ch);
 }

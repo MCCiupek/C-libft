@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:08:11 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 10:43:57 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/23 17:40:11 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/23 17:53:54 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	size_t	i;
-	size_t	len_dest;
+	t_list	*last_elem;
 
-	i = 0;
-	len_dest = ft_strlen(dest);
-	if (len_dest >= size)
-		return (ft_strlen(src) + size);
-	while (src[i] && i < size - len_dest - 1)
+	if (!(*alst))
 	{
-		dest[len_dest + i] = src[i];
-		i++;
+		(*alst) = new;
+		return ;
 	}
-	dest[len_dest + i] = '\0';
-	return (ft_strlen(src) + len_dest);
+	if (alst && new)
+	{
+		last_elem = ft_lstlast(*alst);
+		last_elem->next = new;
+	}
 }

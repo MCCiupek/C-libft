@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:47:31 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/19 10:16:08 by mcciupek         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:56:28 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
+	if (!dest || !src)
+		return (0);
 	while (i < size)
 	{
 		if (!src[i])

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-/*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
+#    By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 15:18:07 by mciupek           #+#    #+#              #
-#    Updated: 2020/11/18 17:46:24 by mciupek          ###   ########.fr        #
+#    Updated: 2020/11/24 10:33:03 by mciupek          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libft.a
-SRCS	= ft_memset.c\
+NAME		= libft.a
+SRCS		= ft_memset.c\
 		ft_bzero.c\
 		ft_memcpy.c\
 		ft_memccpy.c\
@@ -35,22 +35,46 @@ SRCS	= ft_memset.c\
 		ft_atoi.c\
 		ft_calloc.c\
 		ft_strdup.c\
+		ft_substr.c\
+		ft_strjoin.c\
+		ft_strtrim.c\
+		ft_split.c\
+		ft_itoa.c\
+		ft_strmapi.c\
+		ft_putchar_fd.c\
+		ft_putstr_fd.c\
+		ft_putendl_fd.c\
+		ft_putnbr_fd.c\
+
+BONUS		= ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c\
 
 DIR		= ./
 CC		= clang
-FLAGS	= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 OBJ		= $(addprefix $(DIR), $(SRCS:.c=.o))
+OBJBONUS	= $(addprefix $(DIR), $(BONUS:.c=.o))
 
 $(DIR)%.o:	$(DIR)%.c
 	$(CC) $(FLAGS) -o $@ -c $<
 
-s(NAME):	$(OBJ)
+$(NAME):	$(OBJ)
 	ar rcs $(NAME) $(OBJ)
+
+bonus:		$(OBJ) $(OBJBONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJBONUS)
 
 all:		$(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJBONUS)
 
 fclean:		clean
 	rm -f $(NAME)

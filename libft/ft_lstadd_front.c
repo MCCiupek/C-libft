@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:08:11 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 10:43:57 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/23 17:15:19 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/23 17:24:44 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	size_t	i;
-	size_t	len_dest;
-
-	i = 0;
-	len_dest = ft_strlen(dest);
-	if (len_dest >= size)
-		return (ft_strlen(src) + size);
-	while (src[i] && i < size - len_dest - 1)
+	if (alst && new)
 	{
-		dest[len_dest + i] = src[i];
-		i++;
+		new->next = *alst;
+		*alst = new;
 	}
-	dest[len_dest + i] = '\0';
-	return (ft_strlen(src) + len_dest);
 }

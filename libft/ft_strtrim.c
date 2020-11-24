@@ -6,26 +6,51 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 11:11:16 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/19 12:48:06 by mcciupek         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:53:39 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_strfind(char const *s, char *set, int order)
 {
-	size_t	l;
-	char	*tmp;
-	char	*res;
+	int	i;
+	int	j;
+	int	len;
+	int	start;
 
-	l = ft_strlen(set);
-	tmp = (char *)s1;
-	while (l && l < ft_strlen(tmp) && ft_strnstr(tmp, set, l))
-		tmp = tmp + l;
-	while (l && ft_strnstr(tmp + ft_strlen(tmp) - l, set, l))
-		tmp = ft_substr(tmp, 0, ft_strlen(tmp) - l + 1);
-	if (!(res = (char *)malloc(sizeof(char) * ft_strlen(tmp))))
+	i = 0;
+	j = 0;
+	len = ft_strlen(s);
+	start = (order == 1 ? 0 : len - 1);
+	while (i < len)
+	{
+		j = 0;
+		while (set[j] && s[start + order * i] != set[j])
+			if (set[++j] == '\0')
+				return (i);
+		i++;
+	}
+	return (i);
+}
+
+char		*ft_strtrim(const char *s1, const char *set)
+{
+	char	*res;
+	size_t	size;
+	int	stop;
+	int	start;
+
+	if (!s1 || !set)
 		return (NULL);
-	res = tmp;
+	start = ft_strfind(s1, (char *)set, 1);
+	if (start == ft_strlen(s1))
+		stop = 0;
+	else
+		stop = ft_strfind(s1, (char *)set, -1);
+	size = ft_strlen(s1) - start - stop;
+	if (!(res = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	stop = ft_strlcpy(res, (char *)s1 + start, size + 1);
 	return (res);
 }

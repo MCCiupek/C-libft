@@ -6,40 +6,60 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:16:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/19 17:19:58 by mcciupek         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:52:03 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+static char	*ch(char c)
+{
+	char	*res;
+
+	if (!(res = (char *)malloc(sizeof(char) * 2)))
+		return (NULL);
+	res[0] = c;
+	res[1] = '\0';
+	return (res);
+}
+
+static size_t	count_wd(char *str, char c)
+{
+	size_t	l;
+
+	l = ft_strlen(str) ? 1 : 0;
+	while (*((char *)str++ + 1))
+		if (*((char *)str) == c && *((char *)str - 1) != c)
+			l++;
+	return (l);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	char	*tmp;
+	char	*t;
 	char	*str;
-	char	ch[2];
 	char	**res;
 	size_t	l;
 
-	ch[0] = c;
-	ch[1] = '\0';
-	tmp = ft_strtrim(s, ch);
-	l = 1;
-	while (*((char *)tmp++ + 1))
-		if (*((char *)tmp) == c && *((char *)tmp - 1) != c)
-			l++;
+	if (!s || !c)
+		return (NULL);
+	l = count_wd(ft_strtrim(s, ch(c)), c);
 	if (!(res = (char **)malloc(sizeof(char *) * (l + 1))))
 		return (NULL);
 	res[l] = NULL;
-	tmp = ft_strtrim(s, ch);
-	while (l--)
+	if (!l)
+		return (res);
+	t = ft_strtrim(s, ch(c));
+	while (--l)
 	{
-		str = ft_strtrim(ft_strrchr(tmp, c), ch);
-		tmp = ft_strtrim(ft_substr(tmp, 0, ft_strlen(tmp) - ft_strlen(str)), ch);
-		printf("%zu : %s %s\n", l, str, tmp);
+		str = ft_strtrim(ft_strrchr(t, c), ch(c));
+		t = ft_strtrim(ft_substr(t, 0, ft_strlen(t) - ft_strlen(str)), ch(c));
 		if (!(res[l] = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
 			return (NULL);
 		res[l] = str;
 	}
+	if (!(res[l] = (char *)malloc(sizeof(char) * (ft_strlen(t) + 1))))
+		return (NULL);
+	res[l] = t;
 	return (res);
 }

@@ -6,13 +6,13 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:21:14 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/17 15:57:58 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/23 13:13:48 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_spaces(const char *str)
+static int	ft_spaces(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while ((str[i] < '0' || str[i] > '9') && str[i] != '-' && str[i] != '+')
@@ -27,9 +27,9 @@ int		ft_spaces(const char *str)
 
 int		ft_atoi(const char *str)
 {
-	int		i;
-	int		signe;
-	int		nb;
+	int	i;
+	int	signe;
+	int	nb;
 
 	i = ft_spaces(str);
 	if (i == -1)

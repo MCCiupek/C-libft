@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:08:11 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 10:43:57 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/23 11:37:07 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/23 16:36:09 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+static void	ft_write_nbr(int nb, int fd)
 {
-	size_t	i;
-	size_t	len_dest;
+	int	r;
 
-	i = 0;
-	len_dest = ft_strlen(dest);
-	if (len_dest >= size)
-		return (ft_strlen(src) + size);
-	while (src[i] && i < size - len_dest - 1)
+	r = nb % 10;
+	if (nb / 10)
+		ft_write_nbr(nb / 10, fd);
+	r = r + '0';
+	ft_putchar_fd(r, fd);
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
 	{
-		dest[len_dest + i] = src[i];
-		i++;
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		ft_write_nbr(n, fd);
 	}
-	dest[len_dest + i] = '\0';
-	return (ft_strlen(src) + len_dest);
 }

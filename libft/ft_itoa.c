@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:08:11 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 10:43:57 by mciupek          ###   ########.fr       */
+/*   Created: 2020/11/20 15:07:57 by mciupek           #+#    #+#             */
+/*   Updated: 2020/11/23 12:54:40 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+static size_t	ft_nbrlen(long n)
 {
 	size_t	i;
-	size_t	len_dest;
 
-	i = 0;
-	len_dest = ft_strlen(dest);
-	if (len_dest >= size)
-		return (ft_strlen(src) + size);
-	while (src[i] && i < size - len_dest - 1)
+	i = n >= 0 ? 1 : 2;
+	n = n >= 0 ? n : -n;
+	while (n / 10)
 	{
-		dest[len_dest + i] = src[i];
 		i++;
+		n = n / 10;
 	}
-	dest[len_dest + i] = '\0';
-	return (ft_strlen(src) + len_dest);
+	return (i);
+}
+
+char		*ft_itoa(int n)
+{
+	long	nb;
+	char	*res;
+	size_t	len;
+
+	nb = (long)n;
+	len = ft_nbrlen(nb);
+	if (!(res = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	res[0] = nb ? '-' : '0';
+	res[len] = '\0';
+	nb = n >= 0 ? nb : -nb;
+	while ((nb * 10) / 10)
+	{
+		res[--len] = '0' + nb % 10;
+		nb = nb / 10;
+	}
+	return (res);
 }
