@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:16:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/24 11:21:58 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:46:06 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char			**ft_split(char const *s, char c)
 	char	**res;
 	size_t	l;
 
-	if (!s || !c)
+	if (!s || !c || !ch(c))
 		return (NULL);
 	l = count_wd(ft_strtrim(s, ch(c)), c);
 	if (!(res = (char **)malloc(sizeof(char *) * (l + 1))))
@@ -50,11 +50,9 @@ char			**ft_split(char const *s, char c)
 	x = ft_strtrim(s, ch(c));
 	while (l--)
 	{
+		y = ft_strtrim(ft_strrchr(x, c), ch(c));
 		if (l)
-		{
-			y = ft_strtrim(ft_strrchr(x, c), ch(c));
 			x = ft_strtrim(ft_substr(x, 0, ft_strlen(x) - ft_strlen(y)), ch(c));
-		}
 		if (!(res[l] = malloc(sizeof(char) * (ft_strlen(l ? y : x) + 1))))
 			return (NULL);
 		res[l] = l ? y : x;

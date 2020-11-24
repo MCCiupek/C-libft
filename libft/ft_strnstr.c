@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 14:10:03 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/23 16:00:35 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/24 11:53:27 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 	while (s1[i] && i < size)
 	{
 		j = 0;
-		if (s1[i] == s2[j])
-			while (s1[i + j] == s2[j])
-				if (!s2[++j] && i + j < size)
-					return ((char *)&s1[i]);
+		while (s1[i + j] == s2[j] && i + j < size)
+			if (!s2[++j])
+				return ((char *)s1 + i);
 		i++;
 	}
 	return (NULL);
