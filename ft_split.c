@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:16:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/25 14:29:28 by mcciupek         ###   ########.fr       */
+/*   Updated: 2020/11/25 16:08:41 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char			**ft_split(char const *s, char c)
 	char	**res;
 	size_t	l;
 
-	if (!s || !c || !ch(c))
+	if (!s)
 		return (NULL);
 	l = count_wd(ft_strtrim(s, ch(c)), c);
 	if (!(res = (char **)malloc(sizeof(char *) * (l + 1))))
