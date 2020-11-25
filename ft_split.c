@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:16:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/24 11:46:06 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/25 14:29:28 by mcciupek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static size_t	count_wd(char *str, char c)
 	size_t	l;
 
 	l = ft_strlen(str) ? 1 : 0;
+	if (!l)
+		return (0);
 	while (*((char *)str++ + 1))
 		if (*((char *)str) == c && *((char *)str - 1) != c)
 			l++;

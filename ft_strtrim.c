@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 11:11:16 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/24 11:23:01 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/11/25 14:55:44 by mcciupek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int	ft_strfind(char const *s, char *set, int order)
 	j = 0;
 	len = ft_strlen(s);
 	start = (order == 1 ? 0 : len - 1);
+	if (!set || set[0] == '\0')
+		return (0);
 	while (i < len)
 	{
 		j = 0;
@@ -41,7 +43,7 @@ char		*ft_strtrim(const char *s1, const char *set)
 	int		stop;
 	int		start;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
 	start = ft_strfind(s1, (char *)set, 1);
 	if (start == ft_strlen(s1))
