@@ -6,7 +6,7 @@
 /*   By: mciupek <mciupek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:16:35 by mciupek           #+#    #+#             */
-/*   Updated: 2020/11/30 12:33:15 by mciupek          ###   ########.fr       */
+/*   Updated: 2020/12/05 13:41:31 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ static size_t	count_wd(char *str, char c)
 	return (l);
 }
 
-static char		**get_free(char **str)
+static char		**get_free(char **str, int l)
 {
-	size_t	i;
-
-	i = -1;
-	while (str[++i] != '\0')
-		free(str[i]);
+	while (str[++l])
+		free(str[l]);
 	free(str);
 	return (NULL);
 }
@@ -61,7 +58,7 @@ char			**ft_split(char const *s, char c)
 		if (l)
 			x = ft_strtrim(ft_substr(x, 0, ft_strlen(x) - ft_strlen(y)), sep);
 		if (!(res[l] = (char *)malloc(sizeof(c) * (ft_strlen(l ? y : x) + 1))))
-			return (get_free(res));
+			return (get_free(res, l));
 		res[l] = l ? y : x;
 	}
 	return (res);
